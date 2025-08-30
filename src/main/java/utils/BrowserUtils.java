@@ -31,14 +31,15 @@ public class BrowserUtils {
     public void scrollToTop(WebDriver driver) {
         ((JavascriptExecutor) driver).executeScript("window.scrollTo(0, 0);");
     }
+
     public void takeScreenshot(WebDriver driver, String fileName) {
         //** WebDriver'ı TakesScreenshot olarak cast et */
         TakesScreenshot ts = (TakesScreenshot) driver;
 
-        // Screenshot'u File olarak al
+        // Screenshot'u File olarak alır.
         File srcFile = ts.getScreenshotAs(OutputType.FILE);
 
-        // Dosyayı kaydet
+        // Dosyayı kaydeder.
         try {
             File destFile = new File("screenshots/" + fileName + ".png");
             org.apache.commons.io.FileUtils.copyFile(srcFile, destFile);
@@ -46,11 +47,27 @@ public class BrowserUtils {
             e.printStackTrace();
         }
     }
+        //Alert kabul eder.
+        public void acceptAlert(WebDriver driver) {
+            driver.switchTo().alert().accept();
+        }
 
+        //Alert reddeder.
+        public void dismissAlert(WebDriver driver) {
+            driver.switchTo().alert().dismiss();
+        }
 
-
-
+        //Bulunulan sayfayı yeniler (refresh).
+        public void refreshPage(WebDriver driver) {
+        driver.navigate().refresh();
     }
+
+}
+
+
+
+
+
 
 
 
