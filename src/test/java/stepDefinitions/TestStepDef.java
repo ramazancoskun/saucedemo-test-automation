@@ -12,6 +12,9 @@ public class TestStepDef {
 
     @When("Tarayıcı üzerinden {string} aranır")
     public void search(String search){
-        testPage.searchByText(search);
+        testPage.enterSearchText(search);
+        testPage.clickSearchButton();
+        testPage.verifyFirstResult(search);
+
     }
 }

@@ -8,6 +8,7 @@ public class PageElements {
 
     public static final By INPT_SearchBox = By.xpath("//textarea[@name='q']");
     public static final By BTN_Search = By.xpath("//input[@name='btnK' and @type='submit'][1]");
+    public static final By LBL_firstResult = By.cssSelector("h3");
 
 
 
