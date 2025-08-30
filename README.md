@@ -16,18 +16,19 @@ Bu şablon, hazır bir iskelet sağlar; aynı zamanda proje bazlı ihtiyaçlara 
 ```text
 src
 ├─ main/java
-│  ├─ driver/DriverFactory.java
-│  ├─ hooks/
-│  └─ utils/  (Browser, DB, Wait, Config...)
+│ ├─ driver/ # Tarayıcı ve WebDriver yönetimi
+│ ├─ hooks/ # Test başlatma ve bitirme işlemleri (setup/teardown)
+│ └─ utils/ # Yardımcı fonksiyonlar: DB, beklemeler, element etkileşimleri, config
 └─ test/java
-   ├─ base/BasePage.java
-   ├─ pages/TestPage.java
-   ├─ stepDefinitions/TestStepDef.java
-   └─ runners/TestRunner.java
+├─ base/ # Tüm sayfaların temel sınıfı (BasePage)
+├─ pageElements/ # Sayfa elementlerini ayrı tutmak için klasör
+├─ pages/ # Sayfa nesneleri (Page Object)
+└─ runners/ # Test çalıştırıcıları
+├─ stepDefinitions/ # Cucumber step tanımları
 
 resources
-├─ features/test.feature
-└─ config.properties
+├─ features/ # Cucumber feature dosyaları
+└─ config.properties # Proje ayarları ve konfigürasyon
 ```
 
 ## ⚙ Kurulum
@@ -44,7 +45,9 @@ Tüm yapılandırmalar src/test/resources/config.properties dosyasında yapılı
 
 ## 📊 Raporlama
 
-Tüm yapılandırmalar src/test/resources/config.properties dosyasında yapılır.
+Varsayılan: HTML rapor (target/cucumber-report.html)
+
+İsteğe bağlı: Allure, Extent
 
 ## 🔗 CI/CD
 
