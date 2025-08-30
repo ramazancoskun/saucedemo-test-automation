@@ -1,58 +1,53 @@
-Java Test Otomasyon Template
+# Java Test Otomasyon Template 🚀
 
-Hafif ve profesyonel bir test otomasyon iskeleti – hızlı başlangıç için.
+Page Object Model (POM) ve Cucumber (BDD) tabanlı test otomasyon projesi için temel klasörleme yapısı ve mimariyi sunar.
+Bu şablon, hazır bir iskelet sağlar; aynı zamanda proje bazlı ihtiyaçlara göre kolayca özelleştirilebilir.
 
+## Anahtar Noktalar
 
+- **Mimari:** Page Object Model (POM) + Cucumber (BDD)
+- **Driver Yönetimi:** `DriverFactory` ile merkezi tarayıcı yönetimi
+- **Hooks:** Setup & teardown izolasyonu
+- **Utils Paketi:** DB, beklemeler, element etkileşimleri
+- **Konfigürasyon:** `config.properties` ile esnek yapılandırma
+- **Etiket Bazlı Koşum:** Örn. `@smoke`, `@regression`
 
-🚀 Anahtar Noktalar
-
-Page Object Model (POM) + Cucumber (BDD) tabanlı modern mimari.
-
-DriverFactory ile merkezi tarayıcı yönetimi.
-
-Hooks üzerinden setup & teardown izolasyonu.
-
-Utils paketi: DB, beklemeler, element etkileşimleri.
-
-config.properties ile esnek yapılandırma.
-
-Etiket bazlı koşum (örn. @smoke, @regression).
-
-📂 Klasör Yapısı
-
+## 📂 Klasör Yapısı
+```text
 src
 ├─ main/java
 │  ├─ driver/DriverFactory.java
 │  ├─ hooks/
-│  └─ utils/ (Browser, DB, Wait, Config...)
+│  └─ utils/  (Browser, DB, Wait, Config...)
 └─ test/java
-├─ base/BasePage.java
-├─ pages/TestPage.java
-├─ stepDefinitions/TestStepDef.java
-└─ runners/TestRunner.java
+   ├─ base/BasePage.java
+   ├─ pages/TestPage.java
+   ├─ stepDefinitions/TestStepDef.java
+   └─ runners/TestRunner.java
 
 resources
 ├─ features/test.feature
 └─ config.properties
+```
 
-⚙ Kurulum
+## ⚙ Kurulum
 
+```bash
 git clone https://github.com/<kullanici>/<repo>.git
 cd <repo>
 mvn clean test
+```
 
-Konfigürasyon src/test/resources/config.properties dosyasında yapılır.
+## 🛠 Konfigürasyon
 
-📊 Raporlama
+Tüm yapılandırmalar src/test/resources/config.properties dosyasında yapılır.
 
-Varsayılan HTML rapor (target/cucumber-report.html).
+## 📊 Raporlama
 
-İsteğe bağlı: Allure, Extent.
+Tüm yapılandırmalar src/test/resources/config.properties dosyasında yapılır.
 
-🔗 CI/CD
+## 🔗 CI/CD
 
-GitHub Actions veya benzeri CI ortamlarında kolayca entegre edilebilir. Örnek workflow ile headless test koşumu sağlanır.
+GitHub Actions veya benzeri CI ortamlarında kolayca entegre edilebilir.
 
-📜 Lisans
 
-MIT (veya tercih edilen lisans).
