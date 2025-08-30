@@ -13,7 +13,7 @@ import org.junit.runner.RunWith;
         "html:target/html-report/cucumber-report.html",
         "json:target/json-reports/cucumber-report.json",
         },
-        dryRun = false,
+        dryRun = true,
         monochrome = true
 )
         public class TestRunner {

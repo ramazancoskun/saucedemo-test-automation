@@ -34,7 +34,7 @@ resources
 ## ⚙ Kurulum
 
 ```bash
-git clone https://github.com/<kullanici>/<repo>.git
+git clone https://github.com/ramazancoskun/SeleniumBDDFramework.git
 cd <repo>
 mvn clean test
 ```

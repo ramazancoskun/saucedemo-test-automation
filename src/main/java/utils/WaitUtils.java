@@ -1,5 +1,6 @@
 package utils;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -10,15 +11,18 @@ import java.time.Duration;
 
 public class WaitUtils {
 
-    public static void waitForElementVisible(WebDriver driver, WebElement element, int seconds) {
+    public static void waitForElementVisible(WebDriver driver, By locator, int seconds) {
+        WebElement element = driver.findElement(locator);
         new WebDriverWait(driver, Duration.ofSeconds(seconds))
                 .until(ExpectedConditions.visibilityOf(element));
     }
-    public static void waitForElementClickable(WebDriver driver, WebElement element, int seconds) {
+    public static void waitForElementClickable(WebDriver driver, By locator, int seconds) {
+        WebElement element = driver.findElement(locator);
         new WebDriverWait(driver, Duration.ofSeconds(seconds))
                 .until(ExpectedConditions.elementToBeClickable(element));
     }
-    public static void waitForElementInvisible(WebDriver driver, WebElement element, int seconds) {
+    public static void waitForElementInvisible(WebDriver driver, By locator, int seconds) {
+        WebElement element = driver.findElement(locator);
         new WebDriverWait(driver, Duration.ofSeconds(seconds))
                 .until(ExpectedConditions.invisibilityOf(element));
     }

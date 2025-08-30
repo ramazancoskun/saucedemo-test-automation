@@ -1,5 +1,6 @@
 package utils;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
@@ -25,8 +26,9 @@ public class FrameUtils {
     /**
      * WebElement olarak verilen frame’e geçer.
      */
-    public static void switchToFrameByElement(WebDriver driver, WebElement frameElement) {
-        driver.switchTo().frame(frameElement);
+    public static void switchToFrameByElement(WebDriver driver, By locator) {
+        WebElement element = driver.findElement(locator);
+        driver.switchTo().frame(element);
     }
 
     /**

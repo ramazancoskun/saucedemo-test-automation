@@ -11,7 +11,7 @@ public class BrowserUtils {
     /**
      Belirtilen saniye kadar sabit bekleme yapar.
      */
-    public void waitForSeconds(int seconds) {
+    public static void waitForSeconds(int seconds) {
         try {
             Thread.sleep(seconds * 1000L);
         } catch (InterruptedException e) {
@@ -22,17 +22,17 @@ public class BrowserUtils {
     /**
      Sayfanın en altına kaydırma yapar.
      */
-    public void scrollToBottom(WebDriver driver) {
+    public static void scrollToBottom(WebDriver driver) {
             ((JavascriptExecutor) driver).executeScript("window.scrollTo(0, document.body.scrollHeight);");
         }
     /**
      Sayfanın en üstüne kaydırma yapar.
      */
-    public void scrollToTop(WebDriver driver) {
+    public static void scrollToTop(WebDriver driver) {
         ((JavascriptExecutor) driver).executeScript("window.scrollTo(0, 0);");
     }
 
-    public void takeScreenshot(WebDriver driver, String fileName) {
+    public static void takeScreenshot(WebDriver driver, String fileName) {
         //** WebDriver'ı TakesScreenshot olarak cast et */
         TakesScreenshot ts = (TakesScreenshot) driver;
 
@@ -48,21 +48,28 @@ public class BrowserUtils {
         }
     }
         //Alert kabul eder.
-        public void acceptAlert(WebDriver driver) {
+        public static void acceptAlert(WebDriver driver) {
             driver.switchTo().alert().accept();
         }
 
         //Alert reddeder.
-        public void dismissAlert(WebDriver driver) {
+        public static void dismissAlert(WebDriver driver) {
             driver.switchTo().alert().dismiss();
         }
 
         //Bulunulan sayfayı yeniler (refresh).
-        public void refreshPage(WebDriver driver) {
+        public static void refreshPage(WebDriver driver) {
         driver.navigate().refresh();
     }
+        /**
+         * Sayfanın başlığını döndürür.
+         */
+        public static String getPageTitle(WebDriver driver) {
+            return driver.getTitle();
+        }
+    }
 
-}
+
 
 
 

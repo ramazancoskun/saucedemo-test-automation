@@ -1,5 +1,7 @@
 package utils;
 
+import driver.DriverFactory;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
@@ -8,10 +10,13 @@ import org.openqa.selenium.WebElement;
  */
 public class CheckboxUtils {
 
+
+
     /**
      * Checkbox işaretli değilse işaretler.
      */
-    public static void check(WebElement element) {
+    public static void check(WebDriver driver, By locator) {
+        WebElement element = driver.findElement(locator);
         if (!element.isSelected()) {
             element.click();
         }
@@ -20,7 +25,8 @@ public class CheckboxUtils {
     /**
      * Checkbox işaretli ise işareti kaldırır.
      */
-    public static void uncheck(WebElement element) {
+    public static void uncheck(WebDriver driver, By locator) {
+        WebElement element = driver.findElement(locator);
         if (element.isSelected()) {
             element.click();
         }
@@ -29,22 +35,24 @@ public class CheckboxUtils {
     /**
      * Checkbox’ın durumunu tersine çevirir.
      */
-    public static void toggle(WebElement element) {
-        element.click();
+    public static void toggle(WebDriver driver, By locator) {
+        driver.findElement(locator).click();
     }
 
     /**
      * Checkbox işaretli mi kontrol eder.
      */
-    public static boolean isChecked(WebElement element) {
+    public static boolean isChecked(WebDriver driver, By locator) {
+        WebElement element = driver.findElement(locator);
         return element.isSelected();
+
     }
 
     /**
      * Checkbox görünür olana kadar bekler ve işaretler.
      */
-    public static void waitUntilVisibleAndCheck(WebDriver driver, WebElement element, int timeoutInSeconds) {
-        WaitUtils.waitForElementVisible(driver, element, timeoutInSeconds);
-        check(element);
+    public static void waitUntilVisibleAndCheck(WebDriver driver, By locator, int timeoutInSeconds) {
+        WaitUtils.waitForElementVisible(driver, locator, timeoutInSeconds);
+        check(driver,locator);
     }
 }
