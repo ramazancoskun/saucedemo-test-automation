@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>org.example</groupId>
+    <artifactId>BaseProject</artifactId>
+    <version>1.0-SNAPSHOT</version>
+
+    <properties>
+         <java.version>21</java.version>
+         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+         <maven.compiler.source>21</maven.compiler.source>
+         <maven.compiler.target>21</maven.compiler.target>
+         <selenium.version>4.19.1</selenium.version>
+         <cucumber.version>7.16.1</cucumber.version>
+         <junit.version>4.13.2</junit.version>
+         <webdrivermanager.version>5.7.0</webdrivermanager.version>
+         <jackson.version>2.17.0</jackson.version>
+         <maven.compiler.plugin.version>3.8.1</maven.compiler.plugin.version>
+         <allure.version>2.24.0</allure.version>
+        <mssql.version>12.10.0.jre11</mssql.version>
+        <commonlang.version>3.17.0</commonlang.version>
+        <commons-io.version>2.18.0</commons-io.version>
+
+
+    </properties>
+
+    <dependencies>
+    <!-- Selenium WebDriver -->
+    <dependency>
+    <groupId>org.seleniumhq.selenium</groupId>
+    <artifactId>selenium-java</artifactId>
+    <version>${selenium.version}</version>
+    </dependency>
+
+    <!-- Cucumber Java -->
+    <dependency>
+    <groupId>io.cucumber</groupId>
+    <artifactId>cucumber-java</artifactId>
+    <version>${cucumber.version}</version>
+    </dependency>
+
+    <!-- Cucumber JUnit -->
+    <dependency>
+    <groupId>io.cucumber</groupId>
+    <artifactId>cucumber-junit</artifactId>
+    <version>${cucumber.version}</version>
+    <scope>test</scope>
+    </dependency>
+
+     <!-- JUnit -->
+    <dependency>
+    <groupId>junit</groupId>
+    <artifactId>junit</artifactId>
+    <version>${junit.version}</version>
+    <scope>test</scope>
+    </dependency>
+
+    <!-- WebDriverManager -->
+    <dependency>
+    <groupId>io.github.bonigarcia</groupId>
+    <artifactId>webdrivermanager</artifactId>
+    <version>${webdrivermanager.version}</version>
+    </dependency>
+
+    <!-- Jackson -->
+    <dependency>
+    <groupId>com.fasterxml.jackson.core</groupId>
+    <artifactId>jackson-databind</artifactId>
+    <version>${jackson.version}</version>
+    </dependency>
+
+     <!-- Allure Cucumber JUnit 4 -->
+    <dependency>
+     <groupId>io.qameta.allure</groupId>
+    <artifactId>allure-cucumber4-jvm</artifactId>
+    <version>${allure.version}</version>
+    </dependency>
+
+    <!-- Allure JUnit 4 Adapter -->
+    <dependency>
+    <groupId>io.qameta.allure</groupId>
+    <artifactId>allure-junit4</artifactId>
+    <version>${allure.version}</version>
+    </dependency>
+
+     <!-- mssql-jdbc -->
+    <dependency>
+    <groupId>com.microsoft.sqlserver</groupId>
+     <artifactId>mssql-jdbc</artifactId>
+     <version>${mssql.version}</version>
+     <scope>compile</scope>
+    </dependency>
+
+    <dependency>
+    <groupId>org.apache.commons</groupId>
+    <artifactId>commons-lang3</artifactId>
+    <version>${commonlang.version}</version>
+    </dependency>
+
+        <dependency>
+            <groupId>commons-io</groupId>
+            <artifactId>commons-io</artifactId>
+            <version>${commons-io.version}</version>
+        </dependency>
+    </dependencies>
+
+</project>
