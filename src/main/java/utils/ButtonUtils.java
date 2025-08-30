@@ -20,7 +20,7 @@ public class ButtonUtils {
      */
     public static void waitUntilVisibleAndClick(WebDriver driver, WebElement element, int timeoutInSeconds) {
         WaitUtils.waitForElementVisible(driver, element, timeoutInSeconds);
-        element.click();
+        clickButton(element);
     }
 
     /**
@@ -35,7 +35,7 @@ public class ButtonUtils {
      */
     public static void waitUntilClickableAndClick(WebDriver driver, WebElement element, int seconds) {
         WaitUtils.waitForElementClickable(driver, element, seconds);
-        element.click();
+        clickButton(element);
     }
 
     /**
