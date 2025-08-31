@@ -1,0 +1,45 @@
+package stepDefinitions;
+
+import driver.DriverFactory;
+import io.cucumber.datatable.DataTable;
+import io.cucumber.java.en.And;
+import io.cucumber.java.en.Given;
+import io.cucumber.java.en.Then;
+import io.cucumber.java.en.When;
+import org.openqa.selenium.WebDriver;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import pages.LoginPage;
+
+import java.util.Map;
+
+public class LoginStep {
+
+    private static final Logger log = LoggerFactory.getLogger(LoginStep.class);
+    WebDriver driver = DriverFactory.getDriver();
+    LoginPage loginPage = new LoginPage(driver);
+
+    @Given("Giriş ekranı açılır")
+    public void verifyLoginPage(){
+        loginPage.verifyLoginPageItems();
+    }
+    @When("Kullanıcı adı ve şifre giriir")
+    public void enterUsernameAndPassword(DataTable table){
+        Map<String, String> data = table.asMaps(String.class, String.class).getFirst();
+        String username = data.get("username");
+        String password = data.get("password");
+
+        loginPage.enterUsername(username);
+        loginPage.enterPassword(password);
+    }
+    @And("Giriş yap butonuna tıklanır")
+    public void clickLoginButton() {
+        loginPage.clickLogin();
+    }
+    @Then("Uygulamaya giriş yapıldığı doğrulanır")
+    public void verifyHomePage(){
+        loginPage.verifyHomePage();
+    }
+
+}
+

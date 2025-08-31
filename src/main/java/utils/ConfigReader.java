@@ -20,5 +20,6 @@ public class ConfigReader {
         return properties.getProperty(key);
     }
     public static int getIntProperty(String key) {return Integer.parseInt(properties.getProperty(key));
+
     }
 }
