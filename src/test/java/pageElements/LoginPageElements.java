@@ -10,5 +10,7 @@ public class LoginPageElements {
     public static final By BTN_login = By.id("login-button");
     public static final By LBL_loginCredential = By.id("login_credentials");
     public static final By LBL_homePageTitle = By.xpath("//span[@data-test='title' and text()='Products']");
+    public static final By LBL_invalidLoginErrorMessage = By.xpath("//h3[@data-test='error']");
+
 
 }

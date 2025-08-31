@@ -1,16 +1,14 @@
 package pages;
 
 import base.BasePage;
+import constants.PageTitles;
 import driver.DriverFactory;
 import org.apache.commons.logging.Log;
 import org.junit.Assert;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.devtools.v121.input.Input;
 import pageElements.LoginPageElements;
-import utils.BrowserUtils;
-import utils.ButtonUtils;
-import utils.LabelUtils;
-import utils.TextInputUtils;
+import utils.*;
 
 public class LoginPage extends BasePage {
 
@@ -18,10 +16,9 @@ public class LoginPage extends BasePage {
         super(driver);
     }
 
-    // Step 1: Alt metodlar, senin yazdığın kontrolleri koruyor
     public void verifyPageTitle() {
         String actualPageTitle = LabelUtils.getText(driver, LoginPageElements.LBL_pageTitle);
-        Assert.assertEquals("Swag Labs", actualPageTitle);
+        Assert.assertEquals("Sayfa başlığı beklenenden farklı!",PageTitles.LOGIN_PAGE_TITLE, actualPageTitle);
     }
 
     public void verifyUsernameField() {
@@ -56,8 +53,27 @@ public class LoginPage extends BasePage {
     public void clickLogin() {
         ButtonUtils.waitUntilVisibleAndClick(driver,LoginPageElements.BTN_login, defaultWait);
     }
-    public void verifyHomePage() {
+    public void verifyHomePageItem() {
         LabelUtils.waitUntilVisible(driver,LoginPageElements.LBL_homePageTitle,defaultWait);
+    }
+    public void verifyInvalidMessageVisible() {
+        LabelUtils.waitUntilVisible(driver,LoginPageElements.LBL_invalidLoginErrorMessage,defaultWait);
+    }
+    public void verifyInvalidMessageText() {
+       String actualText = LabelUtils.getText(driver,LoginPageElements.LBL_invalidLoginErrorMessage);
+
+       String expectedText = MessageReader.getProperty("invalidLoginMessage");
+       Assert.assertEquals(expectedText,actualText);
+    }
+    public void requiredUsernameMessageText() {
+        String actualText = LabelUtils.getText(driver,LoginPageElements.LBL_invalidLoginErrorMessage);
+        String expectedText = MessageReader.getProperty("emptyUsernameMessage");
+        Assert.assertEquals(expectedText,actualText);
+    }
+    public void requiredPasswordMessageText() {
+        String actualText = LabelUtils.getText(driver,LoginPageElements.LBL_invalidLoginErrorMessage);
+        String expectedText = MessageReader.getProperty("emptyPasswordMessage");
+        Assert.assertEquals(expectedText,actualText);
     }
 
 }

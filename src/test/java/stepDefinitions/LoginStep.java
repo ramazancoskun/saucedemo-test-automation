@@ -12,6 +12,7 @@ import org.slf4j.LoggerFactory;
 import pages.LoginPage;
 
 import java.util.Map;
+import java.util.Objects;
 
 public class LoginStep {
 
@@ -26,8 +27,9 @@ public class LoginStep {
     @When("Kullanıcı adı ve şifre giriir")
     public void enterUsernameAndPassword(DataTable table){
         Map<String, String> data = table.asMaps(String.class, String.class).getFirst();
-        String username = data.get("username");
-        String password = data.get("password");
+
+        final String username = Objects.requireNonNullElse(data.get("username"),"");
+        final String password = Objects.requireNonNullElse(data.get("password"),"");
 
         loginPage.enterUsername(username);
         loginPage.enterPassword(password);
@@ -38,7 +40,22 @@ public class LoginStep {
     }
     @Then("Uygulamaya giriş yapıldığı doğrulanır")
     public void verifyHomePage(){
-        loginPage.verifyHomePage();
+        loginPage.verifyHomePageItem();
+    }
+    @Then("Kullanıcı adı veya şifrenin hatalı olduğu doğrulanır")
+    public void verifyLoginPageMessage(){
+        loginPage.verifyInvalidMessageVisible();
+        loginPage.verifyInvalidMessageText();
+    }
+    @Then("Kullanıcı adının boş bırakıldığı doğrulanır")
+    public void requiredUserName(){
+        loginPage.verifyInvalidMessageVisible();
+        loginPage.requiredUsernameMessageText();
+    }
+    @Then("Şifrenin boş bırakıldığı doğrulanır")
+    public void requiredPassword(){
+        loginPage.verifyInvalidMessageVisible();
+        loginPage.requiredUsernameMessageText();
     }
 
 }
